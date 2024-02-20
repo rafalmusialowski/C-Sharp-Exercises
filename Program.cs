@@ -169,6 +169,8 @@ namespace Graphs
             PrintMatrix(adj);
             Adjacency.IsEmpty(adj, true);
             Console.WriteLine("Liczba krawędzi: " + Adjacency.CountEdges(adj));
+
+            var graf = Graph.FromMatrix(adj);
          }
     }
 }
