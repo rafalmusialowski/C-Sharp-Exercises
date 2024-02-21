@@ -151,26 +151,37 @@ namespace Graphs
 
         static void Main(string[] args)
         {
-            // Pobranie liczby wierzchołków
-            Console.WriteLine("Podaj liczbę wierzchołków:");
-            int no_points = int.Parse(Console.ReadLine());
+            //// Pobranie liczby wierzchołków
+            //Console.WriteLine("Podaj liczbę wierzchołków:");
+            //int no_points = int.Parse(Console.ReadLine());
 
-            int no_edges = -1;
+            //int no_edges = -1;
 
-            //// Pobranie liczby krawędzi
-            while (no_edges < 0 || no_edges > ((no_points * (no_points - 1)) / 2))
-            {
-                Console.WriteLine("Podaj liczbę krawędzi:");
-                no_edges = int.Parse(Console.ReadLine());
-            }
+            ////// Pobranie liczby krawędzi
+            //while (no_edges < 0 || no_edges > ((no_points * (no_points - 1)) / 2))
+            //{
+            //    Console.WriteLine("Podaj liczbę krawędzi:");
+            //    no_edges = int.Parse(Console.ReadLine());
+            //}
 
-            // Generowanie macierzy sąsiedztwa
-            var adj = Adjacency.Init(no_points, no_edges);
-            PrintMatrix(adj);
-            Adjacency.IsEmpty(adj, true);
-            Console.WriteLine("Liczba krawędzi: " + Adjacency.CountEdges(adj));
+            //// Generowanie macierzy sąsiedztwa
+            //var adj = Adjacency.Init(no_points, no_edges);
+            //PrintMatrix(adj);
+            //Adjacency.IsEmpty(adj, true);
+            //Console.WriteLine("Liczba krawędzi: " + Adjacency.CountEdges(adj));
 
-            var graf = Graph.FromMatrix(adj);
+            var adj = new int[,] {  {0, 1, 1, 0, 0, 0},
+                                    {1, 0, 1, 1, 0, 0}, 
+                                    {1, 1, 0, 0, 1, 0}, 
+                                    {0, 1, 0, 0, 0, 1}, 
+                                    {0, 0, 1, 0, 0, 0}, 
+                                    {0, 0, 0, 1, 0, 0} };
+
+            Graph graf = Graph.FromMatrix(adj);
+            graf.Print();
+
+            Console.WriteLine();
+            graf.BFS(1);
          }
     }
 }
